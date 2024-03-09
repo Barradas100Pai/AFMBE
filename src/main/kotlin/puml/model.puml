@@ -1,0 +1,61 @@
+
+@startuml
+
+class Character{
+    {field} name: String
+    {field} level: Int
+    {field} health: Health
+    {field} endurance: Endurance
+    {field} stats: Stats
+    {field} qualities: List<Qualities>
+    {field} gear: List<Item>
+    {field} skills: List<Skill>
+    {field} personality: list<Traits>
+}
+
+class Endurance{
+    limit: Int
+    current: Int
+}
+
+class Health{
+    limit: Int
+    current: Int
+}
+
+class Stats{
+    {field} strength: Int
+    {field} dexterity: Int
+    {field} constitution: Int
+    {field} intelligence: Int
+    {field} wisdom: Int
+    {field} perception: Int
+}
+
+class Skill{
+    {field} name: String
+    {field} level: Int?
+    {field} modifier: Modifier
+}
+
+class Item{
+    {field} name: String
+    {field} description: String
+    {field} weight: Int
+    {field} value: Int
+    {field} type: ItemType
+}
+
+class ItemType{
+    {field} name: String
+    {field} description: String
+}
+
+Character -- Health
+Character -- Endurance
+Character -- Stats
+Character -- Skill
+Character -- Item
+Item -- ItemType
+
+@enduml
